@@ -1,0 +1,54 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background-color: black; /* Black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 80%; /* Container width */
+    height: 60%; /* Container height */
+}
+
+.container::before,
+.container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 10%; /* Red bars on both sides */
+    background-color: red;
+}
+
+.container::before {
+    left: 0;
+}
+
+.container::after {
+    right: 0;
+}
+
+.title {
+    font-size: 4rem; /* Large title */
+    color: white;
+    text-align: center;
+}
+
+.coming-soon {
+    font-size: 1.5rem; /* Smaller text */
+    color: white;
+    text-align: center;
+}
