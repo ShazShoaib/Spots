@@ -5,41 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spots</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
-            width: 100%;
-            height: 100%;
+        body {
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-        }
-
-        .image-container {
-            width: 100vw;
             height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            background-color: #000; /* Optional background color */
+            background-color: black;
+            margin: 0;
         }
-
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        img {
+            width: 80vw;
+            max-width: 800px;
+            height: auto;
         }
     </style>
 </head>
 <body>
-    <div class="image-container">
-        <img src="img.png" alt="Full-Screen 16:9 Static Image">
-    </div>
+    <img id="responsive-image" src="" alt="Responsive Image">
+    
+    <script>
+        // JavaScript to detect if device is mobile
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const img = document.getElementById('responsive-image');
+        
+        // Set image source based on device type
+        if (isMobile) {
+            img.src = 'imgM.jpg';
+        } else {
+            img.src = 'img.jpg';
+        }
+    </script>
 </body>
 </html>
