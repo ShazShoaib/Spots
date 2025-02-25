@@ -1,1 +1,8 @@
 
+[theme]
+primaryColor = "#EC1313"          # Red for buttons and active elements
+backgroundColor = "#000000"       # Black background
+secondaryBackgroundColor = "#1A1A1A"  # Dark gray for contrast
+textColor = "#FFFFFF"             # White text for readability
+font = "sans serif"               # Optional: Set font type
+
