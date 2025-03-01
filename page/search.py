@@ -23,6 +23,7 @@ def get_cuisine_icon(cuisine):
     
     return cuisine_icons.get(cuisine, "❓")  # Default to ❓ if cuisine is not found
 
+
 def search_page():
 
     st.markdown(
@@ -41,8 +42,8 @@ def search_page():
 
     df = load_data()
 
-
-
+    # Icons for food categories (extra slots added for safety)
+    icons = ["🍕", "🍣", "🥩", "🍜", "🥗", "🍔", "🌮", "🍛", "🥘", "🍤"]
 
     # Reorder df based on search similarity
     if search:
@@ -64,9 +65,9 @@ def search_page():
             cuisines += [""] * (7 - len(cuisines))  # Fill empty slots
 
             # Fixed 7-column layout for cuisines
-            for cuisine in zip(cuisines):
+            for cuisine, icon in zip(cuisines, icons):
+                icon = get_cuisine_icon(cuisine)
                 if cuisine:  # Only display if cuisine exists
-                    icon =  get_cuisine_icon(cuisine)
                     st.write(f"{icon} **{cuisine}**")
 
         # Unique key for each button (use row index to avoid errors)
