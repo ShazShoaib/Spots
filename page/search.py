@@ -48,10 +48,9 @@ def search_page():
             cuisines += [""] * (7 - len(cuisines))  # Fill empty slots
 
             # Fixed 7-column layout for cuisines
-            cols = st.columns(15)
-            for col, cuisine, icon in zip(cols, cuisines, icons):
+            for cuisine, icon in zip(cuisines, icons):
                 if cuisine:  # Only display if cuisine exists
-                    col.write(f"{icon} **{cuisine}**")
+                    st.write(f"{icon} **{cuisine}**")
 
         # Unique key for each button (use row index to avoid errors)
         if st.button("Book Now", key=f"book_{row['Name']}"):
