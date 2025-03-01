@@ -7,6 +7,22 @@ def load_data():
     # Load CSV (Ensure the file exists in your working directory)
     return pd.read_csv('spots.csv', encoding='ISO-8859-1')
 
+def get_cuisine_icon(cuisine):
+    cuisine_icons = {
+        "Italian": "🍕",
+        "Japanese": "🍣",
+        "Steakhouse": "🥩",
+        "Chinese": "🍜",
+        "Vegetarian": "🥗",
+        "American": "🍔",
+        "Mexican": "🌮",
+        "Indian": "🍛",
+        "Middle Eastern": "🥘",
+        "Seafood": "🍤"
+    }
+    
+    return cuisine_icons.get(cuisine, "❓")  # Default to ❓ if cuisine is not found
+
 def search_page():
 
     st.markdown(
@@ -25,8 +41,8 @@ def search_page():
 
     df = load_data()
 
-    # Icons for food categories (extra slots added for safety)
-    icons = ["🍕", "🍣", "🥩", "🍜", "🥗", "🍔", "🌮", "🍛", "🥘", "🍤"]
+
+
 
     # Reorder df based on search similarity
     if search:
@@ -48,8 +64,9 @@ def search_page():
             cuisines += [""] * (7 - len(cuisines))  # Fill empty slots
 
             # Fixed 7-column layout for cuisines
-            for cuisine, icon in zip(cuisines, icons):
+            for cuisine in zip(cuisines):
                 if cuisine:  # Only display if cuisine exists
+                    icon =  get_cuisine_icon(cuisine)
                     st.write(f"{icon} **{cuisine}**")
 
         # Unique key for each button (use row index to avoid errors)
