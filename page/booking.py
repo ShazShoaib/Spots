@@ -7,6 +7,27 @@ from page.search import load_data
 def booking_page():
     df = load_data()
 
+
+    st.markdown(
+        """
+        <style>
+        div.stButton > button:first-child {
+            background-color: red !important;
+            color: white !important;
+            border-radius: 5px;
+            border: none;
+            transition: 0.3s ease-in-out;
+        }
+
+        div.stButton > button:first-child:hover {
+            outline: 2px solid white !important;
+            background-color: darkred !important;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
     if st.button("<- Look at other Spots"):
         st.session_state["Page"] = "Search"
         st.rerun()

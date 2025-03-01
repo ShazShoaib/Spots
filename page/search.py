@@ -70,8 +70,35 @@ def search_page():
                 if cuisine:  # Only display if cuisine exists
                     st.write(f"{icon} **{cuisine}**")
 
+
+        st.markdown(
+            """
+            <style>
+            div.stButton > button:first-child {
+                background-color: red !important;
+                color: white !important;
+                border-radius: 5px;
+                border: none;
+                transition: 0.3s ease-in-out;
+            }
+
+            div.stButton > button:first-child:hover {
+                outline: 2px solid white !important;
+                background-color: darkred !important;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
+
+
+
+
         # Unique key for each button (use row index to avoid errors)
         if st.button("Book Now", key=f"book_{row['Name']}"):
+
+
+
             st.session_state["Spot"] = row['Name']
             st.session_state["Page"] = "Booking"
             st.rerun()
